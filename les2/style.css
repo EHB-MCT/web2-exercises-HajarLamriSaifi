@@ -1,0 +1,20 @@
+img {
+    width: 200px;
+    height: 200px;
+}
+
+h2 {
+    color: green;
+}
+
+h3 {
+    color: orange;
+}
+
+button {
+    height: 30px;
+    width: 100px;
+    color: white;
+    background-color: black;
+    border: none;
+}
