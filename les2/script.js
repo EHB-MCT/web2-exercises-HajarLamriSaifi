@@ -1,6 +1,6 @@
-import Team from './team.js'
+//import Team from './team.js'
 
-let team1 = new Team 
+
 
 let list = [];
 let pokemons= [];
@@ -19,12 +19,28 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     });
 
 });
-
-window.onload = function(){
+window.onload = () => {
     setTimeout (buildList, 3000);
-
     function buildList(){
-        console.log(pokemons);
-      
-    }   
-}
+    pokemons.forEach(data => {
+    const pokeContainer = document.getElementById("container");
+    const pokemonEl = document.createElement('div');
+    pokemonEl.classList.add('pokemon');
+    const pokeInnerHtml = `
+    <div class="card" style="width: 18rem;">
+    <img src="${data.sprites.front_default}">
+    <div class="card-body">
+    <h5 class="card-title">#${data.id}</h5>
+    <h3 class="name">${data.name}</h3>
+    <button class="btn btn-outline-success">Add</button>
+    </div>
+    </div>
+    `;
+    pokemonEl.innerHTML = pokeInnerHtml;
+    pokeContainer.appendChild(pokemonEl);
+    
+    });
+    
+    }
+    
+    }
