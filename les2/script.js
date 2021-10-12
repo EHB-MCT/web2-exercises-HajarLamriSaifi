@@ -19,6 +19,7 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     });
 
 });
+
 window.onload = () => {
     setTimeout (buildList, 3000);
     function buildList(){
@@ -40,8 +41,8 @@ window.onload = () => {
     pokemonEl.innerHTML = pokeInnerHtml;
     pokeContainer.appendChild(pokemonEl);
     
-    });
+        });
     
     }
     
-    }
+}
