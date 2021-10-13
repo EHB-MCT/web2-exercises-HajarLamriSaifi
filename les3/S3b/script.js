@@ -1,10 +1,16 @@
 //http://www.omdbapi.com/?i=tt3896198&apikey=1e66a1b6
+
+
+
+let counter = 0;
+
+
 window.onload = function () {
     searchMovie();
 }
 
 function searchMovie() {
-    fetch('http://www.omdbapi.com/?t=parasite&y=2019&apikey=1e66a1b6')
+    fetch('http://www.omdbapi.com/?t=avengers&y=2019&apikey=1e66a1b6')
 .then(resp => resp.json())
 .then(data => {
     console.log(data);
@@ -12,10 +18,6 @@ function searchMovie() {
     showMovie(data)
 })
 }
-
-
-
-
 
     function showMovie(data) {
     let movie = 
@@ -31,14 +33,27 @@ function searchMovie() {
             <p class="card-text">    ${data.Director} </p>
             <p class="card-text"><small class="text-muted">${data.Year}</small></p>
             <p class="card-text"><small class="text-muted">${data.Runtime}</small></p>
+            <button id="button" type="submit" class="btn btn-primary mb-2">+</button>
             </div>
         </div>
-        </div>s
+        </div>
         </div>`
 
         document.getElementById('movieCard').innerHTML= movie;
+        document.getElementById('button').addEventListener('click',
+        e => { 
+            e.preventDefault();
+            runtime(data.Runtime);
+        });
     }
 
+
+    function runtime(e) {
+        let time = parseInt(e);
+        counter += time;
+
+        document.getElementById('counter').innerHTML= `${counter}minute`
+    }
 
 
 
