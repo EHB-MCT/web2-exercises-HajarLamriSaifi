@@ -1,22 +1,26 @@
 //http://www.omdbapi.com/?i=tt3896198&apikey=1e66a1b6
 
 
-
 let counter = 0;
-
 
 window.onload = function () {
     searchMovie();
 }
 
 function searchMovie() {
-    fetch('http://www.omdbapi.com/?t=avengers&y=2019&apikey=1e66a1b6')
-.then(resp => resp.json())
-.then(data => {
+    document.getElementById('searchform').addEventListener('submit', e => {
+        e.preventDefault();
+
+        let title = document.getElementById('inputTitle').value;
+    
+    fetch(`http://www.omdbapi.com/?t=${title}&apikey=1e66a1b6`)
+    .then(resp => resp.json())
+    .then(data => {
     console.log(data);
     console.log(data.Title);
     showMovie(data)
-})
+    })
+}   )
 }
 
     function showMovie(data) {
