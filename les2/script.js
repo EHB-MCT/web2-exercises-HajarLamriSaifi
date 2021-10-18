@@ -13,7 +13,8 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
         fetch(poke.url)
         .then (resp => resp.json())
         .then(pokeObject => {
-            pokemons.push(pokeObject);
+            pokemons.push(pokeObject)
+            console.log(pokeObject);
 
         });
     });
