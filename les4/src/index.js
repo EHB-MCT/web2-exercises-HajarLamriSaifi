@@ -1,12 +1,9 @@
-import _ from 'lodash'
+import Cleave from 'cleave.js';
+require('cleave.js/dist/addons/cleave-phone.be');
 
-function component() {
-    const element = document.createElement('div');
-  
-    // Lodash, currently included via a script, is required for this line to work
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  
-    return element;
-  }
-  
-  document.body.appendChild(component());
+  var cleave = new Cleave('.input-phone', {
+    phone: true,
+    phoneRegionCode: '{country}'
+});
+
+                  
